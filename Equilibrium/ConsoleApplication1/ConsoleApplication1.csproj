@@ -43,7 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Disposable.cs" />
     <Compile Include="Extensions.cs" />
+    <Compile Include="FunctionalExtensions.cs" />
+    <Compile Include="Greedy.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

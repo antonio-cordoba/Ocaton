@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using System.Text.RegularExpressions;
+
 using static System.Linq.Enumerable;
+using static System.Console;
+using static System.Text.RegularExpressions.Regex;
 
 namespace ConsoleApplication1
 {
@@ -14,14 +13,15 @@ namespace ConsoleApplication1
         {
             int[] abc = { 1, 2, 3, 5, -2, 11 };
 
-            Console.WriteLine($"Equilibrium value = {FindEqu(abc)}");
+            WriteLine($"Equilibrium value = {FindEqu(abc)}");
 
             string s = @"AAAAAAAAAABBBBBBBCCCCCCCCCCAAAAAAABBBBBBBBHHHHHHHHDDDDDDDDDDD";
 
-            Console.WriteLine($"TestChain = {s}");
-            Console.WriteLine($"FrequencyChainRegex = {FindChain(s)}" );
-            Console.WriteLine($"FrequencyChainLinq  = {FindChain2(s)}");
-            Console.ReadKey();
+            WriteLine($"TestChain = {s}");
+            WriteLine($"FrequencyChainRegex = {FindChain(s)}" );
+            WriteLine($"FrequencyChainLinq  = {FindChain2(s)}");
+
+            ReadKey();
         }
 
         static int FindEqu(int[] data)
@@ -46,7 +46,7 @@ namespace ConsoleApplication1
         static string FindChain(string input)
         {
             return 
-                Regex.Matches(input, @"(.)\1*")
+                Matches(input, @"(.)\1*")
                 .Cast<Match>()
                 .Select(a => string.Concat(a.Value[0], a.Value.Length))
                 .JoinString();
@@ -60,6 +60,15 @@ namespace ConsoleApplication1
                 .Select(i => new { tk = input.ToCharArray().Skip(i).TakeWhile(c => c == input[i]) })
                 .Select(a => string.Concat(a.tk.First(), a.tk.Count()))
                 .JoinString();
+        }
+
+        static string UsingConsummer ()
+        {
+            return 
+                Disposable.Using(
+                    () => new Greedy(),
+                    g => g.GetDescription()
+                );
         }
     }
 }
