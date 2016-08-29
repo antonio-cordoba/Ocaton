@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Math;
 
 namespace ConsoleApplication1
 {
@@ -54,5 +55,38 @@ namespace ConsoleApplication1
 
             return result;
         }
+
+        public int solution2(int A, int B)
+        {
+
+            //guard against invalid inputs
+            if (
+                A < 0 ||
+                B < 0 ||
+                A > 100000000 ||
+                B > 100000000
+                )
+                return -1;
+
+            // Find max length of digits between A and B
+            // (can also be done using Math.log10)
+            int maxlen = Max(A, B).ToString().Length;
+
+            // Convert numbers to char arrays (padded to max length)
+            // Zip them
+            // Flatten the results 
+            // remove the padding
+            // and join elements + convert result to integer
+            return
+                A.ToPaddedCharArray(maxlen, '~')
+                .Zip(
+                    B.ToPaddedCharArray(maxlen, '~'),
+                    (a, b) => new char[] { a, b }
+                )
+                .SelectMany(a => a)
+                .Where(c => c != '~')
+                .JoinToInt();
+            }
+
+        }
     }
-}

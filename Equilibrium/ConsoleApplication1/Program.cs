@@ -13,9 +13,10 @@ namespace ConsoleApplication1
         {
             //2147395600
             // https://codility.com/c/run/RWGZYM-7EK
-            Console.WriteLine("Zip : {0}", (new Zip()).solution(100000000, 100000000));
-            Console.WriteLine("Whole Square Count : {0}", (new SquareCount()).solution(0, 2147483647));
-            Console.WriteLine("gaps: {0}", (new BinaryGap()).solution(20));
+            //WriteLine("Zip : {0}", (new Zip()).solution(100000000, 100000000));
+            WriteLine("Zip2: {0}", (new Zip()).solution2(1234, 567890));
+            WriteLine("Whole Square Count : {0}", (new SquareCount()).solution(0, 2147483647));
+            WriteLine("gaps: {0}", (new BinaryGap()).solution(20));
 
             int[] abc = { 1, 2, 3, 5, -2, 11 };
 

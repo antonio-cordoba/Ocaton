@@ -10,5 +10,14 @@ namespace ConsoleApplication1
             return String.Join(string.Empty, ie);
         }
 
+        public static int JoinToInt(this IEnumerable<char> ie)
+        {
+            return int.Parse(String.Join(string.Empty, ie));
+        }
+
+        public static char[] ToPaddedCharArray(this int value, int len, char pad)
+        {
+            return value.ToString().PadRight(len, pad).ToCharArray();
+        }
     }
 }
