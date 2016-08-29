@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -84,6 +85,7 @@ namespace ConsoleApplication1
                     (a, b) => new char[] { a, b }
                 )
                 .SelectMany(a => a)
+                .DebugValues(a => Debug.Write(string.Concat('[', a, ']')))
                 .Where(c => c != '~')
                 .JoinToInt();
             }

@@ -21,5 +21,17 @@ namespace ConsoleApplication1
             fn(@this);
             return @this;
         }
+
+        public static IEnumerable<T> DebugValues<T>(
+            this IEnumerable<T> @this,
+            Action<T> @do
+            )
+        {
+            foreach(var x in @this)
+                @do(x);
+
+            return @this;
+        }
+
     }
 }
