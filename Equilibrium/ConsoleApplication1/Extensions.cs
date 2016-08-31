@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
+using System.Linq;
 
 namespace ConsoleApplication1
 {
@@ -18,6 +20,10 @@ namespace ConsoleApplication1
         public static char[] ToPaddedCharArray(this int value, int len, char pad)
         {
             return value.ToString().PadRight(len, pad).ToCharArray();
+        }
+        public static IEnumerable<Match> Matches(this string value, string regex)
+        {
+            return Regex.Matches(value, regex).Cast<Match>();
         }
     }
 }

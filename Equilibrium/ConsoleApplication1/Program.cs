@@ -53,8 +53,7 @@ namespace ConsoleApplication1
         static string FindChain(string input)
         {
             return 
-                Matches(input, @"(.)\1*")
-                .Cast<Match>()
+                input.Matches(@"(.)\1*")
                 .Select(a => string.Concat(a.Value[0], a.Value.Length))
                 .JoinString();
         }
